@@ -1,0 +1,25 @@
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		meta(name='viewport' content='width=device-width')
+		meta(name="keywords" content="")
+		meta(name="author" content="Саламатин Анатолий")
+		link(rel="stylesheet" type='text/css' href="static/fonts/fonts.css")
+		link(rel="stylesheet" type='text/css' href="static/css/main.css")
+		link(rel="stylesheet" type='text/css' href="static/css/media.css")
+		link(rel="stylesheet" type='text/css' href="static/css/libs.min.css")
+
+
+
+		title
+			block title
+	body
+		include ../common/header
+		.wrapper
+			block content
+		include ../common/footer
+		script(src="static/js/libs.min.js")
+		script(src="static/js/main.js")
+
