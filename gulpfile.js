@@ -89,6 +89,7 @@ gulp.task('img', function() {
 gulp.task('build', ['clean', 'img', 'stylus', 'scripts'], function() {
     var buildCss = gulp.src([
             'app/static/css/main.css',
+            'app/static/css/media.css',
             'app/static/css/libs.min.css'
         ])
         .pipe(gulp.dest('prodact/static/css'));

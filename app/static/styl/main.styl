@@ -1,0 +1,77 @@
+@import '_vars.styl'
+@import '_mixins.styl'
+
+html
+  line-height 1.4
+  font-size 14px
+  
+ul,li
+  margin 0
+  padding 0
+  list-style-type none
+  
+p
+  margin 0
+  
+a
+  text-decoration none
+  color black
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video
+  vertical-align middle
+  
+textarea
+  resize none
+  
+*, *:before, *:after
+  box-sizing border-box
+  
+.hide
+  display none
+.show
+  display block
+  
+::-moz-selection 
+  background: #b3d4fc;
+  text-shadow: none;
+  
+::selection 
+  background: #b3d4fc;
+  text-shadow: none;
+  
+.clearfix:before,
+.clearfix:after 
+  content: " ";
+  display: table;
+
+.clearfix:after 
+  clear: both;
+
+.clearfix 
+  *zoom: 1;
+
+.container
+  width 100%
+  max-width 1180px
+  margin 0 auto
+  
+// Стили шапки
+@import 'common/_header.styl'
+// Стили шапки - конец
+
+// Стили главной страницы
+@import 'page/_index.styl'
+// Стили главной страницы - конец
+
+// Стили плагинов
+@import 'common/_plugins.styl'
+// Стили плагинов - конец
+
+// Стили Футера
+@import 'common/_footer.styl'
+// Стили футера - конец
