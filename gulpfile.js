@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    // sass = require('gulp-sass'),
     stylus = require('gulp-stylus'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
@@ -10,7 +9,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     cache = require('gulp-cache'),
-    jade = require('gulp-jade'),
+    pug = require('gulp-pug'),
     autoprefixer = require('gulp-autoprefixer');
 
 
@@ -37,7 +36,10 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
     return gulp.src([
-            'app/static/libs/jquery/dist/jquery.min.js'
+            'app/static/libs/jquery/jquery.min.js',
+            'app/static/libs/bxslider/jquery.bxslider.min.js',
+            'app/static/libs/validate/jquery.validate.min.js',
+            'app/static/libs/magnific-popup/jquery.magnific-popup.min.js'
         ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())
@@ -53,10 +55,10 @@ gulp.task('csslibs', ['stylus'], function() {
         .pipe(gulp.dest('app/static/css/'));
 });
 
-// Работа с jade
-gulp.task('jade', function() {
-    gulp.src('app/jade/pages/*.jade')
-        .pipe(jade({
+// Работа с pug
+gulp.task('pug', function() {
+    gulp.src('app/pug/pages/*.pug')
+        .pipe(pug({
             pretty: true
         }))
         .pipe(gulp.dest('./app'));
@@ -64,7 +66,7 @@ gulp.task('jade', function() {
 
 gulp.task('watch', ['browser-sync', 'csslibs', 'scripts'], function() {
     gulp.watch('app/static/styl/**/*.styl', ['stylus']);
-    gulp.watch('app/jade/**/*.jade', ['jade']);
+    gulp.watch('app/pug/**/*.pug', ['pug']);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/static/js/*.js', browserSync.reload);
 });
